@@ -18,7 +18,7 @@ easy change sidebar position with activeadmin
 
 
 
-2) move sidebar to left within all resource
+2) move sidebar to left within all resource (config/initializers/active_admin.rb)
 
 
   # == Controller Filters
