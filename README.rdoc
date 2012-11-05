@@ -8,7 +8,7 @@ easy change sidebar position with activeadmin
 
   # app/admin/posts.rb
   ActiveAdmin.register Post do
-    before_filter :sidebar_left!
+    before_filter :sidebar_left!, :only=>[:show]
   end
 
   # app/admin/comments.rb
