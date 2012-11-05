@@ -28,3 +28,11 @@ easy change sidebar position with activeadmin
   #
   config.before_filter :sidebar_left!
 
+
+
+Add including of css file 
+
+  @import "active_admin_sidebar"; 
+
+to the  app/assets/stylesheets/active_admin.css.scss
+
