@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Igor"]
   s.email       = ["fedoronchuk@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{active_admin_sidebar gem}
+  s.description = %q{extension for activeadmin gem to manage sidebar}
 
   s.add_dependency "activeadmin"
 
