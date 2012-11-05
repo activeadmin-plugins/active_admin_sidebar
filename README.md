@@ -7,14 +7,14 @@ easy change sidebar position with activeadmin
 1) change sidebar position dynamically with before_filter
 
   # app/admin/posts.rb
-   ActiveAdmin.register Post do
-      before_filter :sidebar_left!
-   end
+  ActiveAdmin.register Post do
+    before_filter :sidebar_left!
+  end
 
- # app/admin/comments.rb
-   ActiveAdmin.register Comment do
-      before_filter :sidebar_right!
-   end
+  # app/admin/comments.rb
+  ActiveAdmin.register Comment do
+    before_filter :sidebar_right!
+  end
 
 
 
