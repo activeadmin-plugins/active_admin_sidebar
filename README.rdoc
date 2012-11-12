@@ -8,12 +8,12 @@ easy change sidebar position with activeadmin
 
   # app/admin/posts.rb
   ActiveAdmin.register Post do
-    before_filter :sidebar_left!, :only=>[:show]
+    before_filter :left_sidebar!, :only=>[:show]
   end
 
   # app/admin/comments.rb
   ActiveAdmin.register Comment do
-    before_filter :sidebar_right!
+    before_filter :right_sidebar!
   end
 
 
@@ -26,7 +26,7 @@ easy change sidebar position with activeadmin
   # You can add before, after and around filters to all of your
   # Active Admin resources from here.
   #
-  config.before_filter :sidebar_left!
+  config.before_filter :left_sidebar!
 
 
 
