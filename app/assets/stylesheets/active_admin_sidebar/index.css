@@ -4,7 +4,7 @@ body.active_admin #active_admin_content.left_sidebar #sidebar{
 }
 
 body.active_admin #active_admin_content.left_sidebar .paginated_collection_contents{
-  float:left;
+  float:inherit;
   clear:none;
 }
 
