@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = ActiveAdminSidebar::VERSION
   s.authors     = ["Igor"]
   s.email       = ["fedoronchuk@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/Fivell/active_admin_sidebar"
   s.summary     = %q{active_admin_sidebar gem}
   s.description = %q{extension for activeadmin gem to manage sidebar}
 
