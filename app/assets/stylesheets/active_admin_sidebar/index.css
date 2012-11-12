@@ -3,10 +3,6 @@ body.active_admin #active_admin_content.left_sidebar #sidebar{
   margin-left:0;
 }
 
-body.active_admin #active_admin_content.left_sidebar #index_top{
-  margin-bottom:25px;
-}
-
 body.active_admin #active_admin_content.left_sidebar .paginated_collection_contents{
   float:left;
   clear:none;
