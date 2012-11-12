@@ -1,12 +1,18 @@
-
 body.active_admin #active_admin_content.left_sidebar #sidebar{
   margin-left:0;
 }
 
 body.active_admin #active_admin_content.left_sidebar .paginated_collection_contents{
-  float:inherit;
-  clear:none;
+  clear: none;
+  float: left;
+  width: 100%;
 }
+
+body.active_admin #active_admin_content.left_sidebar  .blank_slate_container{
+    clear:none;
+}
+
+
 
 body.active_admin #active_admin_content.left_sidebar #main_content_wrapper{
   float:inherit;
