@@ -38,7 +38,7 @@ to the  app/assets/stylesheets/active_admin.css.scss
 
 
 
-{<img src="http://oi45.tinypic.com/1zx1a3r.png" />}
+http://oi45.tinypic.com/1zx1a3r.png
 
 
 
