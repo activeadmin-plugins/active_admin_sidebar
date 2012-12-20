@@ -36,3 +36,10 @@ Add including of css file
 
 to the  app/assets/stylesheets/active_admin.css.scss
 
+
+
+http://oi45.tinypic.com/1zx1a3r.png
+
+
+
+
