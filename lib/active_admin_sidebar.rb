@@ -6,7 +6,7 @@ require 'active_admin_sidebar/positions'
 module ActiveAdminSidebar
   class Engine < Rails::Engine
       config.after_initialize do
-          ActiveAdmin::ResourceController.send :include, ActiveAdminSidebar::Positions
+          ActiveAdmin::BaseController.send :include, ActiveAdminSidebar::Positions
       end
   end
 end
