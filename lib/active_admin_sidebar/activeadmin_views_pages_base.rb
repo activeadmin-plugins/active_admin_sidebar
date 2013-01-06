@@ -4,9 +4,14 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
     build_flash_messages
     classes = Arbre::HTML::ClassList.new
 
-    classes << 'without_sidebar' if skip_sidebar?
-    classes << 'with_sidebar' unless skip_sidebar?
-    classes << 'left_sidebar'  if left_sidebar?
+    if skip_sidebar?
+      classes << 'without_sidebar'
+    else
+      classes << 'with_sidebar'
+      classes << 'left_sidebar' if left_sidebar?
+    end
+
+
 
     div :id => "active_admin_content", :class => classes do
 
