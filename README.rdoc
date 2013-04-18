@@ -1,7 +1,7 @@
-active_admin_sidebar
+active_admin_sidebar 
 ====================
 
-easy change sidebar position with activeadmin
+easy change sidebar position with activeadmin (tested with active_admin-0.5.0)
 
 
 to change sidebar position dynamically with before_filter
