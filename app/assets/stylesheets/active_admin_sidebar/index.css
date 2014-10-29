@@ -12,8 +12,6 @@ body.active_admin #active_admin_content.left_sidebar  .blank_slate_container{
     clear:none;
 }
 
-
-
 body.active_admin #active_admin_content.left_sidebar #main_content_wrapper{
   float:inherit;
   width:auto;
@@ -22,4 +20,5 @@ body.active_admin #active_admin_content.left_sidebar #main_content_wrapper{
 
 body.active_admin #active_admin_content.left_sidebar #main_content_wrapper #main_content{
   margin:0;
+  float: left;
 }
