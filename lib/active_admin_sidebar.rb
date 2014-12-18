@@ -4,11 +4,13 @@ require 'active_admin_sidebar/activeadmin_views_pages_base'
 require 'active_admin_sidebar/positions'
 
 module ActiveAdminSidebar
+  module  Rails
   class Engine < Rails::Engine
       config.after_initialize do
           ActiveAdmin::BaseController.send :include, ActiveAdminSidebar::Positions
       end
   end
+end
 end
 
 
