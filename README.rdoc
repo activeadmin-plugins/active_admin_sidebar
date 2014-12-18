@@ -1,12 +1,12 @@
 active_admin_sidebar 
 ====================
 
-easy change sidebar position with activeadmin (tested with active_admin-0.5.0)
+easy change sidebar position with activeadmin (tested with activeadmin ~> 1.0.0.pre)
 
 
 Add including of css file 
 
-  @import "active_admin_sidebar/index"; 
+  @import "active_admin_sidebar"; 
 
 to the  app/assets/stylesheets/active_admin.css.scss
 
@@ -15,7 +15,7 @@ Changing sidebar position dynamically with before_filter
 
   # app/admin/posts.rb
   ActiveAdmin.register Post do
-    before_filter :left_sidebar!, :only=>[:show]
+    before_filter :left_sidebar!, only: [:show]
   end
 
   # app/admin/comments.rb
@@ -34,7 +34,7 @@ Moving sidebar to the left within all resource (config/initializers/active_admin
   # Active Admin resources from here.
   #
   config.before_filter do
-    left_sidebar! if respond_to?(:left_sidebar!)
+    left_sidebar!
   end 
 
 Disabling using sidebar layout on dashboards (if you setup sidebar position with initializer)
