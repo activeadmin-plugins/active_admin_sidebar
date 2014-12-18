@@ -1,3 +1,3 @@
 module ActiveAdminSidebar
-  VERSION = "0.1.0s"
+  VERSION = "0.1.0.pre"
 end
