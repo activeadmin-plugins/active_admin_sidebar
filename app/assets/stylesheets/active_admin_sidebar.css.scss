@@ -1,4 +1,5 @@
 body.active_admin #active_admin_content.left_sidebar {
+
   #sidebar{
     margin-left:0;
   }
@@ -14,8 +15,8 @@ body.active_admin #active_admin_content.left_sidebar {
   }
 
   .columns {
-      clear: none;
-  }  
+     clear: none;
+   }  
 
   #main_content_wrapper{
     float:inherit;
@@ -32,9 +33,6 @@ body.active_admin #active_admin_content.left_sidebar {
      }
 
   }
-
-
-
 
   .table_tools:after {
     clear: none;
