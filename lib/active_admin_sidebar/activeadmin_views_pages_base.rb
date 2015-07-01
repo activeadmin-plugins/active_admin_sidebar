@@ -10,7 +10,15 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
   end
 
   def left_sidebar?
-    assigns[:sidebar_position] == :left
+    assigns[:sidebar_options].try!(:[], :position) == :left
+  end
+
+  def collapsible_sidebar?
+    left_sidebar? && !!assigns[:sidebar_options].try!(:[], :collapsed)
+  end
+
+  def sidebar_is_collapsed?
+    !!assigns[:sidebar_options].try!(:[], :is_collapsed)
   end
 
   def right_sidebar?
@@ -20,10 +28,14 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
   def main_content_classes
     classes = Arbre::HTML::ClassList.new
     if skip_sidebar?
-      classes << 'without_sidebar'
+      classes << "without_sidebar"
     else
-      classes << 'with_sidebar'
-      classes << 'left_sidebar' if left_sidebar?
+      classes << "with_sidebar"
+      classes << "left_sidebar" if left_sidebar?
+      if collapsible_sidebar?
+        classes << "collapsible_sidebar"
+        classes << "collapsed_sidebar" if sidebar_is_collapsed?
+      end
     end
     classes
   end

@@ -1,0 +1,87 @@
+@import "active_admin_sidebar_pure_icons";
+
+body.active_admin {
+  #active_admin_content.left_sidebar, #active_admin_content.collapsed_sidebar {
+    #sidebar {
+      display: block;
+      margin-left: 0;
+    }
+
+    .paginated_collection_contents {
+      clear: none;
+      float: left;
+      width: 100%;
+    }
+
+    .blank_slate_container {
+      clear: none;
+    }
+
+    .columns {
+      clear: none;
+    }
+
+    #main_content_wrapper {
+      float: inherit;
+      margin-left: 298px;
+      width: auto;
+      #main_content {
+        float: inherit;
+        margin: 0;
+        .tabs .comments {
+          .active_admin_comment {
+            clear: none;
+          }
+        }
+      }
+
+    }
+
+    .table_tools:after {
+      clear: none;
+      padding-bottom: 16px;
+    }
+
+    .collapse_btn, .uncollapse_btn {
+      background-color: #767270;
+      border-radius: 5px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .collapse_btn {
+      clear: both;
+      display: block;
+      float: right;
+    }
+
+    .uncollapse_btn {
+      display: none;
+      margin-top: 5px;
+      position: absolute;
+    }
+
+  }
+}
+
+body.active_admin #active_admin_content.collapsed_sidebar {
+
+  #main_content_wrapper {
+    margin-left: 30px;
+  }
+
+  #sidebar {
+    display: none;
+  }
+
+  .uncollapse_btn {
+    display: block;
+  }
+
+}
+
+body.active_admin.index #active_admin_content.with_sidebar.collapsible_sidebar {
+  #main_content_wrapper #main_content {
+    margin-right: 0;
+  }
+}
