@@ -10,6 +10,12 @@ Add including of css file
 
 to the  app/assets/stylesheets/active_admin.css.scss
 
+And including of coffee file (optional, need only for collapsed sidebar)
+
+  //= require active_admin_sidebar
+
+to the  app/assets/javascripts/active_admin.js
+
 
 Changing sidebar position dynamically with before_filter
 
@@ -37,13 +43,24 @@ Moving sidebar to the left within all resource (config/initializers/active_admin
     left_sidebar! if respond_to?(:left_sidebar!)
   end 
 
-Disabling using sidebar layout on dashboards (if you setup sidebar position with initializer)
+Also you can use sidebar collapsing. It will add css icon in title of first sidebar will save current state in session
 
-  ActiveAdmin.register_page "Dashboard" do
-    controller {skip_before_filter :left_sidebar!}
-    #.....
-  end
-  
+  left_sidebar!(collapsed: true)
+
+You can override button color according to your color theme:
+
+  body.active_admin {
+    #active_admin_content.left_sidebar, #active_admin_content.collapsed_sidebar {
+      .collapse_btn, .uncollapse_btn {
+          cursor: pointer;
+          background-color: #767270;
+          border-radius: 5px;
+          color: #ffffff;
+      }
+    }
+   }
+
+
 Example
 
 http://oi45.tinypic.com/1zx1a3r.png
