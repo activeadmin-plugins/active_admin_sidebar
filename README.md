@@ -69,7 +69,8 @@ You can override button color according to your color theme:
 
 Example
 
-http://oi45.tinypic.com/1zx1a3r.png
+![Alt text](https://raw.githubusercontent.com/activeadmin-plugins/active_admin_sidebar/master/screen/sidebar.jpg "Example")
+
 
 
 
