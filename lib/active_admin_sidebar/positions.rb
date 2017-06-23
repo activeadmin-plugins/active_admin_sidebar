@@ -18,7 +18,7 @@ module ActiveAdminSidebar
     def collapsed_sidebar
       if request.xhr?
         if params[:collapsed_sidebar].present?
-          collapsed = ActiveRecord::ConnectionAdapters::Column::TRUE_VALUES.include? params[:collapsed_sidebar]
+          collapsed = params[:collapsed_sidebar].to_s == 'true'
           session[:collapsed_sidebar] = collapsed
           render json: { collapsed_sidebar: collapsed } and return
         end
