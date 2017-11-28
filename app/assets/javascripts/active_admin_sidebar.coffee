@@ -17,7 +17,9 @@ $(document).ready ->
         set_collapsed_sidebar(true)
         $aa_content.removeClass('left_sidebar')
         $aa_content.addClass('collapsed_sidebar')
+        $aa_content.trigger('collapsible_sidebar:collapsed')
       else
         set_collapsed_sidebar(false)
         $aa_content.removeClass('collapsed_sidebar')
         $aa_content.addClass('left_sidebar')
+        $aa_content.trigger('collapsible_sidebar:uncollapsed')
