@@ -4,15 +4,18 @@ source 'https://rubygems.org'
 gemspec
 
 group :test do
-  gem 'rails', '~> 5.1.6'
-  gem 'turbolinks'
+  gem 'rails', "#{ENV['RAILS'] || '5.2.1'}"
+  if ENV['AA'] == '1-4-stable'
+    gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin.git', branch: '1-4-stable'
+  else
+    gem 'activeadmin', "#{ENV['AA'] || '1.3.1'}"
+  end
+
   gem 'rspec-rails'
-  gem 'activeadmin', '~> 1.1.0'
-  gem 'sass-rails'
   gem 'sqlite3'
-  gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'byebug'
 end
