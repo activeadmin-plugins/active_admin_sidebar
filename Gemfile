@@ -4,16 +4,15 @@ source 'https://rubygems.org'
 gemspec
 
 group :test do
-  gem 'sprockets-rails', '3.2.0'
-  gem 'rails', '5.1.1'
+  gem 'rails', '~> 5.1.6'
   gem 'turbolinks'
   gem 'rspec-rails'
-  gem 'activeadmin', '1.0.0'
+  gem 'activeadmin', '~> 1.1.0'
   gem 'sass-rails'
   gem 'sqlite3'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
-  gem 'poltergeist'
+  gem 'chromedriver-helper'
 end
