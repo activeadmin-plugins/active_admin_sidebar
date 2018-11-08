@@ -7,6 +7,7 @@ module ActiveAdminSidebar
   module Rails
     class Engine < ::Rails::Engine
       config.after_initialize do
+        ActiveAdmin::Views::Pages::Base.prepend ActiveAdminSidebar::ActiveAdminViewsPagesBase
         ActiveAdmin::BaseController.send :include, ActiveAdminSidebar::Positions
       end
     end
