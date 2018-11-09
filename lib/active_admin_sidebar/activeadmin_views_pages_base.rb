@@ -1,4 +1,4 @@
-class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
+module ActiveAdminSidebar::ActiveAdminViewsPagesBase
 
   def build_page_content
     build_flash_messages
@@ -6,6 +6,14 @@ class ActiveAdmin::Views::Pages::Base < Arbre::HTML::Document
       build_sidebar unless skip_sidebar? || right_sidebar?
       build_main_content_wrapper
       build_sidebar unless skip_sidebar? || left_sidebar?
+    end
+  end
+
+  def build_sidebar
+    if defined?(super)
+      super
+    else
+      sidebar sidebar_sections_for_action, id: 'sidebar'
     end
   end
 
