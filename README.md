@@ -4,34 +4,25 @@ Provides ability to manipulate sidebar position for ActiveAdmin (tested with Act
 
 ## Install
 
+Add following line to the `Gemfile`
+
 ```ruby
 gem 'active_admin_sidebar'
-# or latest from GitHub
-gem 'active_admin_sidebar', git: 'https://github.com/activeadmin-plugins/active_admin_sidebar.git'
 ```
 
-Add including of CSS file
+Add following line to the `app/assets/stylesheets/active_admin.css.scss`
 
 ```scss
   @import "active_admin_sidebar";
 ```
 
-to the  
-```
-app/assets/stylesheets/active_admin.css.scss
-```
+If you want to use collapsing feature, add following line
 
-And including of coffee file (optional, need only for collapsed sidebar)
-
-```coffeescript
-  #= require active_admin_sidebar
+```javascripts
+  //= require active_admin_sidebar
 ```
 
-to the  
-
-```scss
-app/assets/javascripts/active_admin.js
-```
+to the `app/assets/javascripts/active_admin.js`
 
 # Configuration per resource
 
