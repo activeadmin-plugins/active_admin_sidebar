@@ -31,9 +31,9 @@ inject_into_file "app/assets/stylesheets/active_admin.scss",
                  "@import \"active_admin_sidebar\";\n",
                  after: "@import \"active_admin/base\";\n"
 
-inject_into_file "app/assets/javascripts/active_admin.js.coffee",
-                 "#= require active_admin_sidebar\n",
-                 after: "#= require active_admin/base\n"
+inject_into_file "app/assets/javascripts/active_admin.js",
+                 "//= require active_admin_sidebar\n",
+                 after: "//= require active_admin/base\n"
 
 run "rm -r test"
 run "rm -r spec"

@@ -22,7 +22,7 @@ describe 'authors index', type: :feature, js: true do
 
     context 'when click on Collapse' do
       before do
-        page.find('#filters_sidebar_section .collapse_btn').click
+        find('#filters_sidebar_section .collapse_btn').click
       end
 
       it "sidebar is hidden, and save it's state after going to another page" do
@@ -39,7 +39,7 @@ describe 'authors index', type: :feature, js: true do
         expect(page).to have_css('#page_title', text: 'Authors')
         expect(page).to have_css('#sidebar', visible: :hidden)
 
-        page.find('.uncollapse_btn').click
+        find('.uncollapse_btn').click
 
         # sidebar is visible
         expect(page).to have_css('#sidebar', visible: :visible)

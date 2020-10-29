@@ -1,0 +1,27 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+/spec/dummy/tmp/
+/spec/dummy/log/*.log
+vendor/bundle
+bin
+spec/rails/
+
+# rspec failure tracking
+.rspec_status
+
+Gemfile.lock
+
+# docs
+/docs/.vuepress/dist/
+/docs/.vuepress/public/api/
+/node_modules/
+
+# idea files
+*.swp
+.idea/

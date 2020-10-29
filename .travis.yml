@@ -1,6 +1,8 @@
 sudo: required
 
 language: ruby
+os: ['linux']
+dist: 'xenial'
 
 addons:
   chrome: stable
@@ -13,9 +15,9 @@ script: bundle exec rspec
 
 env:
   matrix:
-    - RAILS=5.1.6 AA=1.1.0
-    - RAILS=5.2.1 AA=1.4.0
+    - RAILS=5.2.2s AA=1.0.0
+    - RAILS=6.0.3 AA=2.8.1
 
 rvm:
-  - 2.4
-  - 2.6
+  - 2.5.5
+  - 2.7.0

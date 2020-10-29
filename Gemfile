@@ -4,14 +4,15 @@ source 'https://rubygems.org'
 gemspec
 
 group :test do
+  gem 'activeadmin', "~> #{ENV['AA'] || '2.2.0'}"
   gem 'rails', "~> #{ENV['RAILS'] || '5.2.1'}"
-  gem 'activeadmin', "~> #{ENV['AA'] || '1.3.1'}"
 
-  gem 'rspec-rails'
-  gem 'sqlite3', '~> 1.3.6'
-  gem 'database_cleaner'
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
   gem 'byebug'
+  gem 'capybara'
+  gem 'chromedriver-helper'
+  gem 'database_cleaner'
+  gem 'rspec-rails'
+  gem 'sass-rails'
+  gem 'selenium-webdriver'
+  gem 'sqlite3', '~> 1.3.6'
 end
