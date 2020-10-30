@@ -85,3 +85,7 @@ body.active_admin.index #active_admin_content.with_sidebar.collapsible_sidebar {
     margin-right: 0;
   }
 }
+
+.with_sidebar .comments .active_admin_comment {
+  overflow: auto;
+}
