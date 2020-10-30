@@ -19,12 +19,5 @@ env:
     - RAILS=6.0.0 AA=2.8.0
 
 rvm:
-  - 2.4
+  - 2.5
   - 2.6
-
-jobs:
-  exclude:
-    - rvm: 2.4
-      env: RAILS=5.2.2 AA=2.8.0
-    - rvm: 2.4
-      env: RAILS=6.0.0 AA=2.8.0
