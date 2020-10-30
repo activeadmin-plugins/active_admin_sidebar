@@ -8,10 +8,11 @@ group :test do
   gem 'activeadmin', "~> #{ENV['AA'] || '1.3.1'}"
 
   gem 'rspec-rails'
-  gem 'sqlite3', '~> 1.3.6'
+  gem 'sqlite3'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'byebug'
+  gem 'sassc-rails'
 end

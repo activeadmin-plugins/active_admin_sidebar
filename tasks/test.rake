@@ -7,6 +7,7 @@ task :setup do
     --skip-turbolinks
     --skip-spring
     --skip-bootsnap
+    --skip-webpack-install
     -m
     spec/support/rails_template.rb
   )

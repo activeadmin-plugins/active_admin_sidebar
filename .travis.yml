@@ -15,7 +15,16 @@ env:
   matrix:
     - RAILS=5.1.6 AA=1.1.0
     - RAILS=5.2.1 AA=1.4.0
+    - RAILS=5.2.2 AA=2.8.0
+    - RAILS=6.0.0 AA=2.8.0
 
 rvm:
   - 2.4
   - 2.6
+
+jobs:
+  exclude:
+    - rvm: 2.4
+      env: RAILS=5.2.2 AA=2.8.0
+    - rvm: 2.4
+      env: RAILS=6.0.0 AA=2.8.0
