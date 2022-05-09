@@ -1,3 +1,7 @@
+[![Gem Version](https://badge.fury.io/rb/active_admin_sidebar.svg)](https://badge.fury.io/rb/active_admin_sidebar)
+[![NPM Version](https://badge.fury.io/js/@activeadmin-plugins%2Factive_admin_sidebar.svg)](https://badge.fury.io/js/@activeadmin-plugins%2Factive_admin_sidebar)
+![npm](https://img.shields.io/npm/dm/@activeadmin-plugins/active_admin_sidebar)
+
 # ActiveAdmin Sidebar
 
 Provides ability to manipulate sidebar position for ActiveAdmin (tested with ActiveAdmin ~> 1.0.0)
@@ -10,6 +14,7 @@ Add following line to the `Gemfile`
 gem 'active_admin_sidebar'
 ```
 
+##### Using assets via Sprockets
 Add following line to the `app/assets/stylesheets/active_admin.css.scss`
 
 ```scss
@@ -23,6 +28,39 @@ If you want to use collapsing feature, add following line
 ```
 
 to the `app/assets/javascripts/active_admin.js`
+
+##### Using assets via Webpacker (or any other assets bundler) as a NPM module (Yarn package)
+
+Execute:
+
+    $ npm i @activeadmin-plugins/active_admin_sidebar
+
+Or
+
+    $ yarn add @activeadmin-plugins/active_admin_sidebar
+
+Or add manually to `package.json`:
+
+```json
+"dependencies": {
+  "@activeadmin-plugins/active_admin_sidebar": "2.0.0"
+}
+```
+and execute:
+
+    $ yarn
+
+Add the following line into `app/assets/javascripts/active_admin.js`:
+
+```javascript
+import '@activeadmin-plugins/active_admin_sidebar';
+```
+
+Add the following line into `app/assets/stylesheets/active_admin.scss`:
+
+```css
+@import '@activeadmin-plugins/active_admin_sidebar';
+```
 
 # Configuration per resource
 

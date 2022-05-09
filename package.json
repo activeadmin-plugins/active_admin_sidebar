@@ -1,0 +1,30 @@
+{
+  "name": "@activeadmin-plugins/active_admin_sidebar",
+  "version": "2.0.0",
+  "description": "Extension for ActiveAdmin gem to manage sidebar",
+  "main": "src/active_admin_sidebar.js",
+  "style": "src/active_admin_sidebar.scss",
+  "repository": "git@github.com:activeadmin-plugins/active_admin_sidebar.git",
+  "author": "Igor Fedoronchuk <fedoronchuk@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/activeadmin-plugins/active_admin_sidebar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/activeadmin-plugins/active_admin_sidebar/issues"
+  },
+  "homepage": "https://github.com/activeadmin-plugins/active_admin_sidebar#readme",
+  "keywords": [
+    "active",
+    "admin",
+    "sidebar"
+  ],
+  "files": [
+    "src/**/*"
+  ],
+  "scripts": {
+    "prepublishOnly": "rm -rf src && cp -R app/assets/javascripts/ src && cp -R app/assets/stylesheets/ src"
+  }
+}
