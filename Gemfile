@@ -1,18 +1,19 @@
 source 'https://rubygems.org'
-
-# Specify your gem's dependencies in activeadmin_scoped_collection_actions.gemspec
 gemspec
 
-group :test do
-  gem 'rails', "~> #{ENV['RAILS'] || '5.2.1'}"
-  gem 'activeadmin', "~> #{ENV['AA'] || '1.3.1'}"
+default_rails_version = '7.1.0'
+default_activeadmin_version = '3.2.0'
 
+gem 'rails', "~> #{ENV['RAILS'] || default_rails_version}"
+gem 'activeadmin', "~> #{ENV['AA'] || default_activeadmin_version}"
+gem 'sprockets-rails'
+gem 'sass-rails'
+
+group :test do
   gem 'rspec-rails'
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 2.0'
   gem 'database_cleaner'
   gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
-  gem 'byebug'
-  gem 'sassc-rails'
+  gem 'cuprite'
+  gem 'webrick', require: false
 end
