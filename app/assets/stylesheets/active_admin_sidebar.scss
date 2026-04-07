@@ -1,6 +1,5 @@
-@import "active_admin_sidebar_pure_icons";
-
-$toggle-btn-size: 19px;
+$toggle-btn-width: 12px;
+$toggle-btn-height: 48px;
 
 // === Left sidebar layout ===
 // Moves sidebar before main content in the DOM, so we need to
@@ -55,24 +54,50 @@ body.active_admin #active_admin_content.collapsible_sidebar {
   }
 
   .sidebar_toggle_btn {
+    width: $toggle-btn-width;
+    height: $toggle-btn-height;
     background-color: #767270;
     border-radius: 3px;
-    color: #ffffff;
     cursor: pointer;
     z-index: 10;
-    // Override icono's position: relative so absolute works
-    position: absolute !important;
-    top: 5px;
+    position: absolute;
+    top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: #5a5857;
+    }
+
+    .chevron {
+      width: 0;
+      height: 0;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+    }
   }
 
-  // Left sidebar: button flush on the right edge of sidebar
+  // Left sidebar expanded: button on right edge, chevron points left (collapse)
   &.left_sidebar .sidebar_toggle_btn {
-    right: -$toggle-btn-size;
+    right: -$toggle-btn-width;
+    .chevron { border-right: 5px solid #fff; border-left: none; }
   }
 
-  // Right sidebar: button flush on the left edge of sidebar
+  // Left sidebar collapsed: chevron points right (expand)
+  &.left_sidebar.collapsed_sidebar .sidebar_toggle_btn {
+    .chevron { border-left: 5px solid #fff; border-right: none; }
+  }
+
+  // Right sidebar expanded: button on left edge, chevron points right (collapse)
   &:not(.left_sidebar) .sidebar_toggle_btn {
-    left: -$toggle-btn-size;
+    left: -$toggle-btn-width;
+    .chevron { border-left: 5px solid #fff; border-right: none; }
+  }
+
+  // Right sidebar collapsed: chevron points left (expand)
+  &:not(.left_sidebar).collapsed_sidebar .sidebar_toggle_btn {
+    .chevron { border-right: 5px solid #fff; border-left: none; }
   }
 }
 
@@ -87,12 +112,8 @@ body.active_admin #active_admin_content.collapsible_sidebar.collapsed_sidebar.le
     }
   }
 
-  .sidebar_toggle_btn {
-    right: -$toggle-btn-size;
-  }
-
   #main_content_wrapper {
-    margin-left: $toggle-btn-size + 8px;
+    margin-left: $toggle-btn-width + 8px;
   }
 }
 
@@ -108,12 +129,8 @@ body.active_admin #active_admin_content.collapsible_sidebar.collapsed_sidebar:no
     }
   }
 
-  .sidebar_toggle_btn {
-    left: -$toggle-btn-size;
-  }
-
   #main_content_wrapper #main_content {
-    margin-right: $toggle-btn-size + 8px;
+    margin-right: $toggle-btn-width + 8px;
   }
 }
 
