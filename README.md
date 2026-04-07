@@ -107,4 +107,4 @@ Add a toggle button to collapse/expand the sidebar. State is persisted per-resou
   right_sidebar!(collapsible: true, start_collapsed: true)
 ```
 
-![Demo](https://raw.githubusercontent.com/activeadmin-plugins/active_admin_sidebar/master/demo.gif "Collapsible sidebar demo")
+![Demo](https://activeadmin-plugins.github.io/active_admin_sidebar/demo.gif "Collapsible sidebar demo")
