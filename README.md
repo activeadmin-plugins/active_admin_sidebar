@@ -1,6 +1,7 @@
 [![Gem Version](https://badge.fury.io/rb/active_admin_sidebar.svg)](https://badge.fury.io/rb/active_admin_sidebar)
 [![NPM Version](https://badge.fury.io/js/@activeadmin-plugins%2Factive_admin_sidebar.svg)](https://badge.fury.io/js/@activeadmin-plugins%2Factive_admin_sidebar)
 ![npm](https://img.shields.io/npm/dm/@activeadmin-plugins/active_admin_sidebar)
+![Coverage](https://img.shields.io/endpoint?url=https://activeadmin-plugins.github.io/active_admin_sidebar/badge.json)
 
 # ActiveAdmin Sidebar
 
