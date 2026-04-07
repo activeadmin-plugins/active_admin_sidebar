@@ -33,26 +33,25 @@ module ActiveAdminSidebar
     end
 
     def apply_collapsible_options(start_collapsed)
-      session_key = :"collapsed_sidebar_#{controller_name}"
-      handle_collapsed_sidebar_request(session_key)
-      is_collapsed = if session[session_key].nil?
-                       start_collapsed
-                     else
-                       session[session_key]
-                     end
+      handle_sidebar_toggle_request
+      toggled = (session[:aas_toggled] || []).include?(controller_name)
+      is_collapsed = toggled ? !start_collapsed : start_collapsed
       @sidebar_options.merge!(
         collapsible: true,
         is_collapsed: is_collapsed
       )
     end
 
-    def handle_collapsed_sidebar_request(session_key)
-      if request.xhr?
-        if params[:collapsed_sidebar].present?
-          collapsed = params[:collapsed_sidebar].to_s == 'true'
-          session[session_key] = collapsed
-          render json: { collapsed_sidebar: collapsed } and return
+    def handle_sidebar_toggle_request
+      if request.xhr? && params[:collapsed_sidebar].present?
+        toggled = session[:aas_toggled] || []
+        if toggled.include?(controller_name)
+          toggled -= [controller_name]
+        else
+          toggled += [controller_name]
         end
+        session[:aas_toggled] = toggled
+        render json: { collapsed_sidebar: params[:collapsed_sidebar] } and return
       end
     end
 
