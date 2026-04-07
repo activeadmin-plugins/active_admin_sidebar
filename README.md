@@ -5,34 +5,31 @@
 
 # ActiveAdmin Sidebar
 
-Provides ability to manipulate sidebar position for ActiveAdmin (tested with ActiveAdmin ~> 1.0.0)
+Manipulate sidebar position and add collapsible sidebar support for ActiveAdmin 3.x.
 
 ## Install
 
-Add following line to the `Gemfile`
+Add to your `Gemfile`:
 
 ```ruby
 gem 'active_admin_sidebar'
 ```
 
-##### Using assets via Sprockets
-Add following line to the `app/assets/stylesheets/active_admin.css.scss`
+### Using assets via Sprockets
+
+Add to `app/assets/stylesheets/active_admin.scss`:
 
 ```scss
-  @import "active_admin_sidebar";
+@import "active_admin_sidebar";
 ```
 
-If you want to use collapsing feature, add following line
+Add to `app/assets/javascripts/active_admin.js`:
 
-```javascripts
-  //= require active_admin_sidebar
+```javascript
+//= require active_admin_sidebar
 ```
 
-to the `app/assets/javascripts/active_admin.js`
-
-##### Using assets via Webpacker (or any other assets bundler) as a NPM module (Yarn package)
-
-Execute:
+### Using assets via NPM
 
     $ npm i @activeadmin-plugins/active_admin_sidebar
 
@@ -40,58 +37,48 @@ Or
 
     $ yarn add @activeadmin-plugins/active_admin_sidebar
 
-Or add manually to `package.json`:
-
-```json
-"dependencies": {
-  "@activeadmin-plugins/active_admin_sidebar": "2.0.0"
-}
-```
-and execute:
-
-    $ yarn
-
-Add the following line into `app/assets/javascripts/active_admin.js`:
+Add to `app/assets/javascripts/active_admin.js`:
 
 ```javascript
 import '@activeadmin-plugins/active_admin_sidebar';
 ```
 
-Add the following line into `app/assets/stylesheets/active_admin.scss`:
+Add to `app/assets/stylesheets/active_admin.scss`:
 
-```css
+```scss
 @import '@activeadmin-plugins/active_admin_sidebar';
 ```
 
-# Configuration per resource
+## Configuration per resource
 
-Changing sidebar position dynamically with before_action
+Change sidebar position with `before_action`:
 
 ```ruby
-  # app/admin/posts.rb
-  ActiveAdmin.register Post do
-    before_action :left_sidebar!, only: [:show]
+# app/admin/posts.rb
+ActiveAdmin.register Post do
+  before_action only: [:index] do
+    left_sidebar!
   end
+end
 
-  # app/admin/comments.rb
-  ActiveAdmin.register Comment do
-    before_action :right_sidebar!
+# app/admin/comments.rb
+ActiveAdmin.register Comment do
+  before_action do
+    right_sidebar!
   end
+end
 ```
 
 ## Global configuration
 
-Moving sidebar to the left within all resource. Set configuration in `config/initializers/active_admin.rb`
+Move sidebar to the left for all resources in `config/initializers/active_admin.rb`:
 
 ```ruby
-  # == Controller before-actions
-  #
-  # You can add before, after and around actions to all of your resources
-  ActiveAdmin.setup do |config|
-    config.before_action do
-      left_sidebar! if respond_to?(:left_sidebar!)
-    end
+ActiveAdmin.setup do |config|
+  config.before_action do
+    left_sidebar! if respond_to?(:left_sidebar!)
   end
+end
 ```
 
 ## Collapsible sidebar
@@ -99,13 +86,13 @@ Moving sidebar to the left within all resource. Set configuration in `config/ini
 Add a toggle button to collapse/expand the sidebar. State is persisted per-resource across page navigations.
 
 ```ruby
-  # Collapsible sidebar (starts expanded)
-  left_sidebar!(collapsible: true)
-  right_sidebar!(collapsible: true)
+# Collapsible sidebar (starts expanded)
+left_sidebar!(collapsible: true)
+right_sidebar!(collapsible: true)
 
-  # Collapsible sidebar (starts collapsed)
-  left_sidebar!(collapsible: true, start_collapsed: true)
-  right_sidebar!(collapsible: true, start_collapsed: true)
+# Collapsible sidebar (starts collapsed)
+left_sidebar!(collapsible: true, start_collapsed: true)
+right_sidebar!(collapsible: true, start_collapsed: true)
 ```
 
 ![Demo](https://activeadmin-plugins.github.io/active_admin_sidebar/demo.gif "Collapsible sidebar demo")
