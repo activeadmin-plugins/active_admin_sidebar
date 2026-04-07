@@ -52,15 +52,6 @@ body.active_admin {
 body.active_admin #active_admin_content.collapsible_sidebar {
   #sidebar {
     position: relative;
-    transition: width 0.25s ease, margin-left 0.25s ease;
-  }
-
-  #main_content_wrapper #main_content {
-    transition: margin 0.25s ease;
-  }
-
-  #main_content_wrapper {
-    transition: margin 0.25s ease;
   }
 
   .sidebar_toggle_btn {

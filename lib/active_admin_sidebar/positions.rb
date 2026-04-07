@@ -3,39 +3,40 @@ module ActiveAdminSidebar
     def left_sidebar!(options = {})
       @sidebar_options = { position: :left }
 
-      collapsible = options.fetch(:collapsible, false)
-      collapsed   = options.fetch(:collapsed, false)
+      validate_sidebar_options!(options)
 
-      # Backward compatibility: `collapsed: true` without `collapsible:` means collapsible (not start-collapsed)
-      if collapsed && !options.key?(:collapsible)
-        collapsible = true
-        collapsed = false
-        ActiveSupport::Deprecation.warn(
-          "left_sidebar!(collapsed: true) is deprecated. " \
-          "Use left_sidebar!(collapsible: true) instead, or " \
-          "left_sidebar!(collapsible: true, collapsed: true) to start collapsed."
-        )
-      end
+      collapsible     = options.fetch(:collapsible, false)
+      start_collapsed = options.fetch(:start_collapsed, false)
 
-      apply_collapsible_options(collapsible, collapsed) if collapsible
+      apply_collapsible_options(start_collapsed) if collapsible
     end
 
     def right_sidebar!(options = {})
       @sidebar_options = { position: :right }
 
-      collapsible = options.fetch(:collapsible, false)
-      collapsed   = options.fetch(:collapsed, false)
+      validate_sidebar_options!(options)
 
-      apply_collapsible_options(collapsible, collapsed) if collapsible
+      collapsible     = options.fetch(:collapsible, false)
+      start_collapsed = options.fetch(:start_collapsed, false)
+
+      apply_collapsible_options(start_collapsed) if collapsible
     end
 
     private
 
-    def apply_collapsible_options(collapsible, collapsed)
+    def validate_sidebar_options!(options)
+      if options.key?(:collapsed)
+        raise ArgumentError,
+          "The :collapsed option has been removed in v3. " \
+          "Use `collapsible: true, start_collapsed: true` instead."
+      end
+    end
+
+    def apply_collapsible_options(start_collapsed)
       session_key = :"collapsed_sidebar_#{controller_name}"
       handle_collapsed_sidebar_request(session_key)
       is_collapsed = if session[session_key].nil?
-                       collapsed
+                       start_collapsed
                      else
                        session[session_key]
                      end
