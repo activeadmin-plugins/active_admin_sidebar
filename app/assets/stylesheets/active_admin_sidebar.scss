@@ -1,7 +1,12 @@
 @import "active_admin_sidebar_pure_icons";
 
+$toggle-btn-size: 19px;
+
+// === Left sidebar layout ===
+// Moves sidebar before main content in the DOM, so we need to
+// reverse the default AA float layout.
 body.active_admin {
-  #active_admin_content.left_sidebar, #active_admin_content.collapsed_sidebar {
+  #active_admin_content.left_sidebar {
     #sidebar {
       display: block;
       margin-left: 0;
@@ -25,67 +30,110 @@ body.active_admin {
       float: inherit;
       margin-left: 298px;
       width: auto;
+
       #main_content {
         float: inherit;
         margin: 0;
-        .tabs .comments {
-          .active_admin_comment {
-            clear: none;
-          }
+
+        .tabs .comments .active_admin_comment {
+          clear: none;
         }
       }
-
     }
 
     .table_tools:after {
       clear: none;
       padding-bottom: 16px;
     }
-
-    .collapse_btn, .uncollapse_btn {
-      background-color: #767270;
-      border-radius: 5px;
-      color: #ffffff;
-      cursor: pointer;
-    }
-
-    .collapse_btn {
-      clear: both;
-      display: block;
-      float: right;
-    }
-
-    .uncollapse_btn {
-      display: none;
-      margin-top: 5px;
-      position: absolute;
-    }
-
   }
 }
 
-body.active_admin #active_admin_content.collapsed_sidebar {
+// === Collapsible sidebar: toggle button ===
+body.active_admin #active_admin_content.collapsible_sidebar {
+  #sidebar {
+    position: relative;
+    transition: width 0.25s ease, margin-left 0.25s ease;
+  }
+
+  #main_content_wrapper #main_content {
+    transition: margin 0.25s ease;
+  }
 
   #main_content_wrapper {
-    margin-left: 30px;
+    transition: margin 0.25s ease;
   }
 
-  #sidebar {
-    display: none;
+  .sidebar_toggle_btn {
+    background-color: #767270;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 10;
+    // Override icono's position: relative so absolute works
+    position: absolute !important;
+    top: 5px;
   }
 
-  .uncollapse_btn {
-    display: block;
+  // Left sidebar: button flush on the right edge of sidebar
+  &.left_sidebar .sidebar_toggle_btn {
+    right: -$toggle-btn-size;
   }
 
+  // Right sidebar: button flush on the left edge of sidebar
+  &:not(.left_sidebar) .sidebar_toggle_btn {
+    left: -$toggle-btn-size;
+  }
 }
 
-body.active_admin.index #active_admin_content.with_sidebar.collapsible_sidebar {
+// === Collapsed state: left sidebar ===
+body.active_admin #active_admin_content.collapsible_sidebar.collapsed_sidebar.left_sidebar {
+  #sidebar {
+    width: 0;
+    overflow: visible;
+
+    .sidebar_section {
+      display: none;
+    }
+  }
+
+  .sidebar_toggle_btn {
+    right: -$toggle-btn-size;
+  }
+
+  #main_content_wrapper {
+    margin-left: $toggle-btn-size + 8px;
+  }
+}
+
+// === Collapsed state: right sidebar (default AA position) ===
+body.active_admin #active_admin_content.collapsible_sidebar.collapsed_sidebar:not(.left_sidebar) {
+  #sidebar {
+    width: 0;
+    margin-left: 0;
+    overflow: visible;
+
+    .sidebar_section {
+      display: none;
+    }
+  }
+
+  .sidebar_toggle_btn {
+    left: -$toggle-btn-size;
+  }
+
+  #main_content_wrapper #main_content {
+    margin-right: $toggle-btn-size + 8px;
+  }
+}
+
+// === Left sidebar expanded + collapsible: fix margin ===
+body.active_admin.index #active_admin_content.with_sidebar.left_sidebar.collapsible_sidebar {
   #main_content_wrapper #main_content {
     margin-right: 0;
   }
 }
 
+// === Comments overflow fix ===
 .with_sidebar .comments .active_admin_comment {
   overflow: auto;
 }

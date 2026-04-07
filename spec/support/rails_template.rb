@@ -32,7 +32,7 @@ generate :'formtastic:install'
 
 # Initialize plugin
 inject_into_file "config/initializers/active_admin.rb",
-                 "  config.before_action do\n    left_sidebar!(collapsed: true) if respond_to?(:left_sidebar!)\n  end\n\n",
+                 "  config.before_action do\n    left_sidebar!(collapsible: true) if respond_to?(:left_sidebar!)\n  end\n\n",
                  after: "ActiveAdmin.setup do |config|\n"
 
 inject_into_file "app/assets/stylesheets/active_admin.scss",
