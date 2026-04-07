@@ -3,3 +3,4 @@
 /pkg/
 /tmp/
 spec/rails/rails-*
+/coverage
