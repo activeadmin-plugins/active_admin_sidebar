@@ -54,9 +54,9 @@ describe 'authors index', type: :feature, js: true do
 
   end
 
-  context 'left-sidebar with collapsible: true, collapsed: true (starts collapsed)' do
+  context 'left-sidebar with collapsible: true, start_collapsed: true' do
     before do
-      add_author_resource_with_collapsed
+      add_author_resource_with_start_collapsed
       add_post_resource
       visit '/admin/authors'
     end
@@ -79,16 +79,17 @@ describe 'authors index', type: :feature, js: true do
     end
   end
 
-  context 'backward compatibility: left-sidebar with collapsed: true (old API)' do
-    before do
-      add_author_resource_with_old_api
-      add_post_resource
-      visit '/admin/authors'
+  context 'deprecated collapsed option raises error' do
+    it 'raises ArgumentError for left_sidebar!' do
+      obj = Object.new
+      obj.extend(ActiveAdminSidebar::Positions)
+      expect { obj.left_sidebar!(collapsed: true) }.to raise_error(ArgumentError, /removed in v3/)
     end
 
-    it 'still works as collapsible sidebar' do
-      expect(page).to have_css('#active_admin_content.collapsible_sidebar')
-      expect(page).to have_css('.sidebar_toggle_btn')
+    it 'raises ArgumentError for right_sidebar!' do
+      obj = Object.new
+      obj.extend(ActiveAdminSidebar::Positions)
+      expect { obj.right_sidebar!(collapsed: true) }.to raise_error(ArgumentError, /removed in v3/)
     end
   end
 
@@ -125,15 +126,15 @@ describe 'authors index', type: :feature, js: true do
 
         page.find('.sidebar_toggle_btn').click
 
-        expect(page).to have_css('#sidebar .sidebar_section', visible: :visible)
         expect(page).not_to have_css('#active_admin_content.collapsed_sidebar')
+        expect(page).to have_css('#sidebar .sidebar_section', visible: :visible)
       end
     end
   end
 
-  context 'right-sidebar with collapsible: true, collapsed: true (starts collapsed)' do
+  context 'right-sidebar with collapsible: true, start_collapsed: true' do
     before do
-      add_author_resource_right_sidebar_collapsed
+      add_author_resource_right_sidebar_start_collapsed
       add_post_resource
       visit '/admin/authors'
     end
@@ -159,12 +160,12 @@ describe 'authors index', type: :feature, js: true do
   context 'per-resource sidebar state isolation' do
     before do
       Post.create!(title: 'Test', body: 'Body', author: Author.first)
-      add_author_resource_with_collapsed
+      add_author_resource_with_start_collapsed
       add_post_resource_with_sidebar
     end
 
     it 'changing sidebar state on one resource does not affect another' do
-      # Authors starts collapsed (collapsible: true, collapsed: true)
+      # Authors starts collapsed (collapsible: true, start_collapsed: true)
       visit '/admin/authors'
       expect(page).to have_css('#active_admin_content.collapsed_sidebar')
 
