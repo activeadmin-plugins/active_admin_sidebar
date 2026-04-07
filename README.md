@@ -93,27 +93,18 @@ Moving sidebar to the left within all resource. Set configuration in `config/ini
   end
 ```
 
-## Collapsing sidebar
+## Collapsible sidebar
 
-You can use sidebar collapsing.
-It will add "hide/show" button. Shown/Hidden state is persisted across all pages.
+Add a toggle button to collapse/expand the sidebar. State is persisted per-resource across page navigations.
 
 ```ruby
-  left_sidebar!(collapsed: true)
+  # Collapsible sidebar (starts expanded)
+  left_sidebar!(collapsible: true)
+  right_sidebar!(collapsible: true)
+
+  # Collapsible sidebar (starts collapsed)
+  left_sidebar!(collapsible: true, start_collapsed: true)
+  right_sidebar!(collapsible: true, start_collapsed: true)
 ```
 
-You can override button color according to your color theme. For example:
-
-```scss
-  body.active_admin {
-    #active_admin_content.left_sidebar, #active_admin_content.collapsed_sidebar {
-      .collapse_btn, .uncollapse_btn {
-          background-color: #767270;
-      }
-    }
-   }
-```
-
-Example
-
-![Alt text](https://raw.githubusercontent.com/activeadmin-plugins/active_admin_sidebar/master/screen/sidebar.jpg "Example")
+![Demo](https://raw.githubusercontent.com/activeadmin-plugins/active_admin_sidebar/master/demo.gif "Collapsible sidebar demo")
