@@ -13,10 +13,11 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 3.1.0'
 
-  # Specs and CI config are dev-only — consumers download them and use
-  # none of them. `s.test_files` is dropped: RubyGems deprecated it, and
-  # it pointed at files this gem no longer ships.
-  s.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|\.github)/}) }
+  # Whitelist, not a reject list: a new directory in the repo does not
+  # reach consumers until it is named here. The reject form needs a new
+  # pattern every time the repo grows one, and that is how the
+  # Capybara suite under spec/ ended up published in the first place.
+  s.files         = Dir["lib/**/*", "app/**/*", "README.md", "LICENSE"]
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
