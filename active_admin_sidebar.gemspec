@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = %q{extension for activeadmin gem to manage sidebar}
   s.license     = "MIT"
 
-  s.required_ruby_version = '>= 3.1.0'
+  s.required_ruby_version = '>= 3.3'
 
   # Whitelist, not a reject list: a new directory in the repo does not
   # reach consumers until it is named here. The reject form needs a new
